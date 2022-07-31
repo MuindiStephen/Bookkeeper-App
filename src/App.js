@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import { Link, Outlet } from 'react-router-dom';
+
 import './App.css';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1 style={{color: 'blue'}}>Bookkeeper!</h1>
+        <nav style={{
+            borderBottom: 'solid 3px',
+            paddingBottom: '2rem',
+           
+        }}>
+          <Link to={"/invoices"} style={{padding:20 }}>Invoices</Link>
+          <Link to={"/expenses"} style={{padding:20}}>Expenses</Link>
+        </nav>
+        <Outlet/> 
     </div>
   );
 }
 
-export default App;
+//Outer - UI components will use a shared layout 
+//       - swaps between the two child routes Invoices and Expenses
+
+
+
