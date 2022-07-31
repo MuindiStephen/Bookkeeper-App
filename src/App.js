@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import {NavLink, Outlet } from 'react-router-dom';
 
 import './App.css';
 
@@ -11,8 +11,10 @@ export default function App() {
             paddingBottom: '2rem',
            
         }}>
-          <Link to={"/invoices"} style={{padding:20 }}>Invoices</Link>
-          <Link to={"/expenses"} style={{padding:20}}>Expenses</Link>
+          <NavLink to={"/invoices"} style={({isActive}) => { 
+            return {padding:20, color: isActive ? 'red' : 'blue' }
+            }}>Invoices</NavLink>
+          <NavLink to={"/expenses"} style={{padding:20}}>Expenses</NavLink>
         </nav>
         <Outlet/> 
     </div>
